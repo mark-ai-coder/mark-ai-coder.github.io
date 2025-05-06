@@ -3,34 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Initial App Portfolio site</title>
+    <title>Trust Gauntlet App Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      /* Basic styles (you can expand this) */
-      body { font-family: sans-serif; }
-      .project-video { margin-bottom: 20px; }
+        body {
+            font-family: 'Inter', sans-serif; /* More modern font */
+            background-color: #f3f4f6; /* Tailwind's gray-100 */
+            color: #1f2937; /* Tailwind's gray-800 */
+            line-height: 1.75; /* Increased line height for better readability */
+        }
+        header {
+            background-color: #ffffff; /* Tailwind's white */
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* Tailwind's shadow-md */
+        }
+        header h1 {
+            font-size: 2.25rem; /* Tailwind's text-3xl */
+            font-weight: 600; /* Tailwind's font-semibold */
+            color: #10b981; /* Tailwind's teal-500 */
+            margin-bottom: 0.5rem; /* Tailwind's mb-2 */
+        }
+        main {
+            padding: 2rem;
+            max-width: 1000px; /* Increased max-width */
+            margin: 0 auto;
+        }
+        .project-video {
+            margin-bottom: 3rem; /* Tailwind's mb-12 */
+            border-radius: 0.5rem;  /* Tailwind's rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Tailwind's shadow-md */
+            overflow: hidden; /* To contain the rounded corners of the iframe */
+        }
+        .project-video h2 {
+            font-size: 1.5rem; /* Tailwind's text-2xl */
+            font-weight: 500; /* Tailwind's font-medium */
+            color: #2563eb; /* Tailwind's blue-500 */
+            margin-bottom: 1rem; /* Tailwind's mb-4 */
+            text-align: center;
+        }
+        .project-description {
+            margin-bottom: 3rem; /* Tailwind's mb-12 */
+        }
+        .project-description h2 {
+            font-size: 1.5rem; /* Tailwind's text-2xl */
+            font-weight: 500; /* Tailwind's font-medium */
+            color: #2563eb; /* Tailwind's blue-500 */
+            margin-bottom: 1rem; /* Tailwind's mb-4 */
+        }
+        .project-description p {
+            font-size: 1.125rem; /* Tailwind's text-lg */
+            color: #4b5563; /* Tailwind's gray-600 */
+        }
+        .project-code {
+            margin-bottom: 3rem; /* Tailwind's mb-12 */
+        }
+        .project-code h2 {
+            font-size: 1.5rem; /* Tailwind's text-2xl */
+            font-weight: 500; /* Tailwind's font-medium */
+            color: #2563eb; /* Tailwind's blue-500 */
+            margin-bottom: 1rem; /* Tailwind's mb-4 */
+        }
+        .project-code p {
+            font-size: 1.125rem; /* Tailwind's text-lg */
+            color: #4b5563; /* Tailwind's gray-600 */
+        }
+        .project-code a {
+            color: #10b981; /* Tailwind's teal-500 */
+            text-decoration: underline;
+        }
+        .project-code a:hover {
+            color: #059669; /* Tailwind's teal-600 */
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #f9fafb; /* Tailwind's gray-50 */
+            color: #4b5563; /* Tailwind's gray-600 */
+            border-top: 1px solid #e5e7eb; /* Tailwind's border-gray-200 */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) { /* Medium screens and smaller (md breakpoint in Tailwind is 768px) */
+            main {
+                padding: 1.5rem;
+            }
+            header h1{
+                font-size: 2.5rem;
+            }
+            .project-video iframe {
+                width: 100%; /* Make iframe responsive */
+                height: 300px; /* Adjust height as needed */
+            }
+        }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Trust Gauntlet MVP</h1>
+<body class="bg-gray-100">
+    <header class="bg-white">
+        <h1 class="text-3xl font-semibold text-teal-500">Trust Gauntlet MVP</h1>
     </header>
-    <main>
+    <main class="max-w-4xl mx-auto">
         <section class="project-video">
-            <h2>App Demo</h2>
-            <iframe width="640" height="474" src="https://www.loom.com/embed/932de6c8d05347c2aca3adfbccd334a7?sid=5b769e62-616a-4135-905e-c523a5e0281b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <h2 class="text-2xl font-medium text-blue-500">App Demo</h2>
+            <div class="relative aspect-w-16 aspect-h-9">
+                <iframe
+                    class="rounded-lg"
+                    src="https://www.loom.com/embed/932de6c8d05347c2aca3adfbccd334a7?sid=5b769e62-616a-4135-905e-c523a5e0281b"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </section>
         <section class="project-description">
-            <h2>Description</h2>
-            <p>A simple app to test AI alignment</p>
+            <h2 class="text-2xl font-medium text-blue-500">Description</h2>
+            <p class="text-lg text-gray-700">A simple app to test AI alignment</p>
         </section>
         <section class="project-code">
-            <h2>Code</h2>
-            <p>
-                You can find the code for this app on <a href="https://github.com/mark-ai-coder/AIVerification">GitHub</a>.
+            <h2 class="text-2xl font-medium text-blue-500">Code</h2>
+            <p class="text-lg text-gray-700">
+                You can find the code for this app on
+                <a href="https://github.com/mark-ai-coder/AIVerification" class="text-teal-500 hover:text-teal-600">GitHub</a>.
             </p>
         </section>
     </main>
-    <footer>
+    <footer class="bg-gray-50 border-t border-gray-200 text-gray-600">
         <p>Contact: mark.nelson@pursuit.org</p>
     </footer>
 </body>
