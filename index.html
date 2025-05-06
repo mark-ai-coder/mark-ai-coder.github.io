@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trust Gauntlet App Portfolio</title>
+    <title>Mark Nelson - AI Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -11,15 +11,15 @@
             background-color: #f3f4f6;
             color: #1f2937;
             line-height: 1.75;
-            margin: 0; /* Reset default body margin */
+            margin: 0;
         }
         header {
             background-color: #ffffff;
             padding: 2.5rem 0;
             text-align: center;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-            border-bottom-left-radius: 0.75rem; /* Rounded bottom left corner */
-            border-bottom-right-radius: 0.75rem; /* Rounded bottom right corner */
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
         }
         header h1 {
             font-size: 3rem;
@@ -29,7 +29,7 @@
         }
         main {
             padding: 3rem;
-            max-width: 1100px; /* Increased max-width */
+            max-width: 1100px;
             margin: 0 auto;
         }
         .project-item {
@@ -40,17 +40,19 @@
             border-radius: 0.75rem;
             box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
             padding: 2rem;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         .project-item:hover {
-            transform: translateY(-0.5rem); /* Slight lift on hover */
+            transform: translateY(-0.5rem);
             box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.2), 0 6px 10px -4px rgba(0, 0, 0, 0.15);
         }
 
         .project-video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            /* height: auto;  Remove fixed height, adjust with max-height and aspect ratio */
+            max-height: 600px; /* Limit maximum height */
+            aspect-ratio: 16/9;
             margin-bottom: 2rem;
             border-radius: 0.5rem;
             overflow: hidden;
@@ -100,8 +102,8 @@
             background-color: #f9fafb;
             color: #4b5563;
             border-top: 1px solid #e5e7eb;
-            border-top-left-radius: 0.75rem;  /* Rounded top left corner */
-            border-top-right-radius: 0.75rem; /* Rounded top right corner */
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
             margin-top: 4rem;
         }
         footer p {
@@ -150,7 +152,7 @@
 </head>
 <body class="bg-gray-100">
     <header class="bg-white">
-        <h1 class="text-3xl font-semibold text-teal-500">Trust Gauntlet App Portfolio</h1>
+        <h1 class="text-3xl font-semibold text-teal-500">Mark Nelson - AI Portfolio</h1>
     </header>
     <main class="max-w-5xl mx-auto">
         <section class="project-item">
@@ -163,7 +165,7 @@
                 </iframe>
             </div>
             <div class="project-info">
-                <h2 class="text-2xl font-semibold text-blue-500">App Demo</h2>
+                <h2 class="text-2xl font-semibold text-blue-500">Trust Gauntlet MVP</h2>
                 <p class="text-lg text-gray-700">A simple app to test AI alignment</p>
                 <p class="project-code">
                     You can find the code for this app on
