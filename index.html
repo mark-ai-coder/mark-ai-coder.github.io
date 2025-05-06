@@ -7,129 +7,173 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif; /* More modern font */
-            background-color: #f3f4f6; /* Tailwind's gray-100 */
-            color: #1f2937; /* Tailwind's gray-800 */
-            line-height: 1.75; /* Increased line height for better readability */
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.75;
+            margin: 0; /* Reset default body margin */
         }
         header {
-            background-color: #ffffff; /* Tailwind's white */
-            padding: 2rem 0;
+            background-color: #ffffff;
+            padding: 2.5rem 0;
             text-align: center;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* Tailwind's shadow-md */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 0.75rem; /* Rounded bottom left corner */
+            border-bottom-right-radius: 0.75rem; /* Rounded bottom right corner */
         }
         header h1 {
-            font-size: 2.25rem; /* Tailwind's text-3xl */
-            font-weight: 600; /* Tailwind's font-semibold */
-            color: #10b981; /* Tailwind's teal-500 */
-            margin-bottom: 0.5rem; /* Tailwind's mb-2 */
+            font-size: 3rem;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 0.75rem;
         }
         main {
-            padding: 2rem;
-            max-width: 1000px; /* Increased max-width */
+            padding: 3rem;
+            max-width: 1100px; /* Increased max-width */
             margin: 0 auto;
         }
-        .project-video {
-            margin-bottom: 3rem; /* Tailwind's mb-12 */
-            border-radius: 0.5rem;  /* Tailwind's rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Tailwind's shadow-md */
-            overflow: hidden; /* To contain the rounded corners of the iframe */
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 4rem;
+            background-color: #fff;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+            padding: 2rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
         }
-        .project-video h2 {
-            font-size: 1.5rem; /* Tailwind's text-2xl */
-            font-weight: 500; /* Tailwind's font-medium */
-            color: #2563eb; /* Tailwind's blue-500 */
-            margin-bottom: 1rem; /* Tailwind's mb-4 */
-            text-align: center;
-        }
-        .project-description {
-            margin-bottom: 3rem; /* Tailwind's mb-12 */
-        }
-        .project-description h2 {
-            font-size: 1.5rem; /* Tailwind's text-2xl */
-            font-weight: 500; /* Tailwind's font-medium */
-            color: #2563eb; /* Tailwind's blue-500 */
-            margin-bottom: 1rem; /* Tailwind's mb-4 */
-        }
-        .project-description p {
-            font-size: 1.125rem; /* Tailwind's text-lg */
-            color: #4b5563; /* Tailwind's gray-600 */
-        }
-        .project-code {
-            margin-bottom: 3rem; /* Tailwind's mb-12 */
-        }
-        .project-code h2 {
-            font-size: 1.5rem; /* Tailwind's text-2xl */
-            font-weight: 500; /* Tailwind's font-medium */
-            color: #2563eb; /* Tailwind's blue-500 */
-            margin-bottom: 1rem; /* Tailwind's mb-4 */
-        }
-        .project-code p {
-            font-size: 1.125rem; /* Tailwind's text-lg */
-            color: #4b5563; /* Tailwind's gray-600 */
-        }
-        .project-code a {
-            color: #10b981; /* Tailwind's teal-500 */
-            text-decoration: underline;
-        }
-        .project-code a:hover {
-            color: #059669; /* Tailwind's teal-600 */
+        .project-item:hover {
+            transform: translateY(-0.5rem); /* Slight lift on hover */
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.2), 0 6px 10px -4px rgba(0, 0, 0, 0.15);
         }
 
+        .project-video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .project-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .project-info h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 1.25rem;
+        }
+        .project-description {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        .project-code {
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+        .project-code a {
+            color: #10b981;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        .project-code a:hover {
+            color: #059669;
+        }
         footer {
             text-align: center;
-            padding: 2rem 0;
-            background-color: #f9fafb; /* Tailwind's gray-50 */
-            color: #4b5563; /* Tailwind's gray-600 */
-            border-top: 1px solid #e5e7eb; /* Tailwind's border-gray-200 */
+            padding: 2.5rem 0;
+            background-color: #f9fafb;
+            color: #4b5563;
+            border-top: 1px solid #e5e7eb;
+            border-top-left-radius: 0.75rem;  /* Rounded top left corner */
+            border-top-right-radius: 0.75rem; /* Rounded top right corner */
+            margin-top: 4rem;
+        }
+        footer p {
+             font-size: 1.125rem;
         }
 
         /* Responsive adjustments */
-        @media (max-width: 768px) { /* Medium screens and smaller (md breakpoint in Tailwind is 768px) */
+        @media (max-width: 768px) {
             main {
-                padding: 1.5rem;
+                padding: 2rem;
             }
-            header h1{
+            header h1 {
                 font-size: 2.5rem;
             }
-            .project-video iframe {
-                width: 100%; /* Make iframe responsive */
-                height: 300px; /* Adjust height as needed */
+            .project-item {
+                flex-direction: column;
+            }
+            .project-video-container {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+             .project-info {
+                margin-left: 0;
+                margin-top: 2rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .project-item {
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+             .project-video-container{
+                width: 50%;
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+            .project-info {
+                width: 50%;
+                margin-left: 2rem;
             }
         }
     </style>
 </head>
 <body class="bg-gray-100">
     <header class="bg-white">
-        <h1 class="text-3xl font-semibold text-teal-500">Trust Gauntlet MVP</h1>
+        <h1 class="text-3xl font-semibold text-teal-500">Trust Gauntlet App Portfolio</h1>
     </header>
-    <main class="max-w-4xl mx-auto">
-        <section class="project-video">
-            <h2 class="text-2xl font-medium text-blue-500">App Demo</h2>
-            <div class="relative aspect-w-16 aspect-h-9">
+    <main class="max-w-5xl mx-auto">
+        <section class="project-item">
+            <div class="project-video-container">
                 <iframe
-                    class="rounded-lg"
                     src="https://www.loom.com/embed/932de6c8d05347c2aca3adfbccd334a7?sid=5b769e62-616a-4135-905e-c523a5e0281b"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
             </div>
-        </section>
-        <section class="project-description">
-            <h2 class="text-2xl font-medium text-blue-500">Description</h2>
-            <p class="text-lg text-gray-700">A simple app to test AI alignment</p>
-        </section>
-        <section class="project-code">
-            <h2 class="text-2xl font-medium text-blue-500">Code</h2>
-            <p class="text-lg text-gray-700">
-                You can find the code for this app on
-                <a href="https://github.com/mark-ai-coder/AIVerification" class="text-teal-500 hover:text-teal-600">GitHub</a>.
-            </p>
+            <div class="project-info">
+                <h2 class="text-2xl font-semibold text-blue-500">App Demo</h2>
+                <p class="text-lg text-gray-700">A simple app to test AI alignment</p>
+                <p class="project-code">
+                    You can find the code for this app on
+                    <a href="https://github.com/mark-ai-coder/AIVerification">GitHub</a>.
+                </p>
+            </div>
         </section>
     </main>
     <footer class="bg-gray-50 border-t border-gray-200 text-gray-600">
-        <p>Contact: mark.nelson@pursuit.org</p>
+        <p>Contact: <a href="mailto:mark.nelson@pursuit.org">mark.nelson@pursuit.org</a></p>
     </footer>
 </body>
 </html>
