@@ -12,9 +12,9 @@
             color: #1f2937;
             line-height: 1.75;
             margin: 0;
-            display: flex; /* Use flexbox for overall layout */
+            display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure full viewport height */
+            min-height: 100vh;
         }
         header {
             background-color: #ffffff;
@@ -31,12 +31,12 @@
             margin-bottom: 0.75rem;
         }
         main {
-            padding: 3rem;
+            padding: 2rem; /* Reduced main padding */
             max-width: 1100px;
             margin: 0 auto;
-            display: flex; /* Use flexbox for main content layout */
+            display: flex;
             flex-direction: column;
-            flex: 1; /* Allow main to expand and take up available space */
+            flex: 1;
         }
         .project-item {
             display: flex;
@@ -56,8 +56,9 @@
         .project-video-container {
             position: relative;
             width: 100%;
-            max-height: 600px;
-            aspect-ratio: 16/9;
+            height: 474px; /* Restored original video height */
+            /* max-height: 600px;  Removed max-height */
+            aspect-ratio: 640 / 474;
             margin-bottom: 2rem;
             border-radius: 0.5rem;
             overflow: hidden;
@@ -116,13 +117,13 @@
         }
 
         #bio {
-            flex: 0 0 320px; /* Fixed width for the bio column */
-            padding-right: 2rem;
-            margin-right: 2rem;
+            flex: 0 0 320px;
+            padding-right: 1rem; /* Reduced padding-right */
+            margin-right: 1rem;    /* Reduced margin-right */
             border-right: 1px solid #e5e7eb;
-            position: sticky; /* Make it sticky */
-            top: 2rem;          /* Stick to the top with some offset */
-            height: fit-content; /* Adjust height to content */
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
         }
 
         #bio h2 {
@@ -133,7 +134,7 @@
         }
 
         #bio p {
-            font-size: 1rem;
+            font-size: 0.9rem; /* Reduced font size to 0.9rem */
             line-height: 1.75;
             color: #4b5563;
         }
@@ -143,7 +144,7 @@
         @media (max-width: 768px) {
             main {
                 padding: 2rem;
-                flex-direction: column; /* Stack bio and projects on small screens */
+                flex-direction: column;
             }
             header h1 {
                 font-size: 2.5rem;
@@ -154,7 +155,7 @@
             .project-video-container {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 16/9;
+                aspect-ratio: 640 / 474;
             }
              .project-info {
                 margin-left: 0;
@@ -166,29 +167,30 @@
                 margin-right: 0;
                 border-right: none;
                 margin-bottom: 2rem;
-                position: relative; /* Remove sticky on small screens */
+                position: relative;
                 top: 0;
             }
         }
 
         @media (min-width: 768px) {
             main {
-                flex-direction: row; /* Use row layout on larger screens */
-                justify-content: space-between; /* Space out bio and projects */
+                flex-direction: row;
+                justify-content: space-between;
             }
             .project-item {
-                flex-direction: row;
-                align-items: center;
-                gap: 3rem;
+                flex-direction: column; /* Changed to column */
+                align-items: flex-start;  /* Align items to the start */
+                gap: 0;             /* Removed gap */
             }
              .project-video-container{
-                width: 50%;
-                height: auto;
-                aspect-ratio: 16/9;
+                width: 640px; /* Set fixed width and height */
+                height: 474px;
+                aspect-ratio: none;
             }
             .project-info {
-                width: 50%;
-                margin-left: 2rem;
+                width: auto;
+                margin-left: 0;
+                margin-bottom: 2rem;
             }
         }
     </style>
@@ -208,6 +210,10 @@
             </p>
         </aside>
         <section class="project-item">
+            <div class="project-info">
+                <h2 class="text-2xl font-semibold text-blue-500">Trust Gauntlet MVP</h2>
+                <p class="text-lg text-gray-700"  style="margin-bottom: 1rem;">A simple app to test AI alignment</p>
+            </div>
             <div class="project-video-container">
                 <iframe
                     src="https://www.loom.com/embed/932de6c8d05347c2aca3adfbccd334a7?sid=5b769e62-616a-4135-905e-c523a5e0281b"
@@ -216,14 +222,11 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <div class="project-info">
-                <h2 class="text-2xl font-semibold text-blue-500">Trust Gauntlet MVP</h2>
-                <p class="text-lg text-gray-700">A simple app to test AI alignment</p>
-                <p class="project-code">
-                    You can find the code for this app on
-                    <a href="https://github.com/mark-ai-coder/AIVerification">GitHub</a>.
-                </p>
-            </div>
+
+            <p class="project-code" style="margin-top: 2rem;">
+                You can find the code for this app on
+                <a href="https://github.com/mark-ai-coder/AIVerification">GitHub</a>.
+            </p>
         </section>
     </main>
     <footer class="bg-gray-50 border-t border-gray-200 text-gray-600">
