@@ -12,6 +12,9 @@
             color: #1f2937;
             line-height: 1.75;
             margin: 0;
+            display: flex; /* Use flexbox for overall layout */
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
         }
         header {
             background-color: #ffffff;
@@ -31,6 +34,9 @@
             padding: 3rem;
             max-width: 1100px;
             margin: 0 auto;
+            display: flex; /* Use flexbox for main content layout */
+            flex-direction: column;
+            flex: 1; /* Allow main to expand and take up available space */
         }
         .project-item {
             display: flex;
@@ -50,8 +56,7 @@
         .project-video-container {
             position: relative;
             width: 100%;
-            /* height: auto;  Remove fixed height, adjust with max-height and aspect ratio */
-            max-height: 600px; /* Limit maximum height */
+            max-height: 600px;
             aspect-ratio: 16/9;
             margin-bottom: 2rem;
             border-radius: 0.5rem;
@@ -110,10 +115,35 @@
              font-size: 1.125rem;
         }
 
+        #bio {
+            flex: 0 0 320px; /* Fixed width for the bio column */
+            padding-right: 2rem;
+            margin-right: 2rem;
+            border-right: 1px solid #e5e7eb;
+            position: sticky; /* Make it sticky */
+            top: 2rem;          /* Stick to the top with some offset */
+            height: fit-content; /* Adjust height to content */
+        }
+
+        #bio h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #10b981;
+            margin-bottom: 1.5rem;
+        }
+
+        #bio p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #4b5563;
+        }
+
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             main {
                 padding: 2rem;
+                flex-direction: column; /* Stack bio and projects on small screens */
             }
             header h1 {
                 font-size: 2.5rem;
@@ -130,9 +160,22 @@
                 margin-left: 0;
                 margin-top: 2rem;
             }
+            #bio {
+                width: 100%;
+                padding-right: 0;
+                margin-right: 0;
+                border-right: none;
+                margin-bottom: 2rem;
+                position: relative; /* Remove sticky on small screens */
+                top: 0;
+            }
         }
 
         @media (min-width: 768px) {
+            main {
+                flex-direction: row; /* Use row layout on larger screens */
+                justify-content: space-between; /* Space out bio and projects */
+            }
             .project-item {
                 flex-direction: row;
                 align-items: center;
@@ -152,9 +195,18 @@
 </head>
 <body class="bg-gray-100">
     <header class="bg-white">
-        <h1 class="text-3xl font-semibold text-teal-500">Mark Nelson — Portfolio of Experiments</h1>
+        <h1 class="text-3xl font-semibold text-teal-500">Mark Nelson - AI Portfolio</h1>
     </header>
     <main class="max-w-5xl mx-auto">
+        <aside id="bio">
+            <h2>About Me</h2>
+            <p>
+                A graduate student in Quantitative Methods, bridging sociological insights into human behavior and social contexts with rigorous analytical skills, I bring a unique perspective to AI product development. My extensive background in game development and design has cultivated expertise in user-centered UI/UX principles, visual communication across a suite of design tools (Adobe, open-source), and a deep understanding of user engagement and iterative design. Coupled with years as a meticulous knowledge worker proficient in data accuracy and visual storytelling within demanding professional environments, I possess a keen eye for detail and efficient workflows. While not a traditional programmer, I have practical familiarity with multiple coding languages (Lua, Objective-C, Python, JavaScript, Java) and am actively developing proficiency in Python and R for data science and statistical development, driven by a focused interest in AI validation, tuning, and the creation of intuitive semantic knowledge visualization tools for LLMs.
+            </p>
+            <p>
+                My journey, from analyzing social dynamics to designing engaging player experiences and streamlining critical knowledge workflows, has converged into a passion for making complex AI systems more understandable and trustworthy for non-technical users. I am driven by the potential to create visual tools that demystify the inner workings of LLMs, facilitating better validation, refinement, and ultimately, more responsible and accessible AI. By combining my understanding of human behavior, analytical rigor, design expertise, and growing technical skills in AI and data science, I aim to contribute meaningfully to the development of human-centered AI solutions.
+            </p>
+        </aside>
         <section class="project-item">
             <div class="project-video-container">
                 <iframe
